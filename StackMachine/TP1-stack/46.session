@@ -1,0 +1,13 @@
+window_sizes 1280 962 300 900 682 82
+diagrams
+  active  classdiagram_ref 128174 // diagramm
+    974 806 100 4 0 0
+end
+show_stereotypes
+open
+  class_ref 128942 // CPU
+  class_ref 129326 // MachineLauncher
+  class_ref 129582 // Program
+  deploymentview_ref 128046 // stackmachine
+end
+end
