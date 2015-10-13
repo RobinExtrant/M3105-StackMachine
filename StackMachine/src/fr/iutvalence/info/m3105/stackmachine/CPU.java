@@ -31,12 +31,16 @@ public class CPU
 	// TODO something is missing here...
 	private Memory programMemory;
 	private IO ioSystem;
+	private Stack expStack;
+	private Stack callStack;
 
 	
-	public CPU (Memory memory, IO ioSystem)
+	public CPU (Memory memory, IO ioSystem, Stack expstack, Stack callstack)
 	{
 		this.programMemory=memory;
 		this.ioSystem=ioSystem;
+		this.expStack=expstack;
+		this.callStack=callstack;
 	}
 	
 	public void run()

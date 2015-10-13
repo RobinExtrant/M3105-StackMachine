@@ -1,6 +1,6 @@
 format 76
 "stackmachine" // src::fr::iutvalence::info::m3105::stackmachine
-  revision 1
+  revision 2
   modified_by 46 ""
   // class settings
   //class diagram settings
@@ -44,6 +44,11 @@ format 76
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 128174 "diagramm"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 128942 "CPU"
       visibility public 
       cpp_decl ""
@@ -337,6 +342,34 @@ ${members}}
 	  b parent class_ref 129710 // Stack
       end
 
+      classrelation 136110 // <composition>
+	relation_ref 128046 // <composition>
+      end
+
+      classrelation 136238 // <composition>
+	relation 135982 *---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136238 // <composition>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136366 // <composition>
+      end
+
+      classrelation 136366 // <composition>
+	relation_ref 135982 // <composition>
+      end
+
+      classrelation 137006 // <unidirectional association>
+	relation 136366 --->
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137006 // <unidirectional association>
+	  b parent class_ref 129454 // Memory
+      end
     end
 
     class 129070 "IO"
@@ -446,6 +479,10 @@ ${members}}
 	
 	
       end
+
+      classrelation 136622 // <composition>
+	relation_ref 136110 // <composition>
+      end
     end
 
     class 129198 "Machine"
@@ -459,13 +496,14 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128046 // cpu (<unidirectional association>)
-	relation 128046 --->
+      classrelation 128046 // cpu (<composition>)
+	relation 128046 *---
 	  a role_name "cpu" private
 	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
 "
-	    classrelation_ref 128046 // cpu (<unidirectional association>)
-	  b parent class_ref 128942 // CPU
+	    classrelation_ref 128046 // cpu (<composition>)
+	  b role_name "" private
+	    classrelation_ref 136110 // <composition>
       end
 
       attribute 131246 "programMemory"
@@ -523,13 +561,14 @@ ${members}}
 	
       end
 
-      classrelation 128174 // ProgramMemory (<unidirectional association>)
-	relation 128174 --->
+      classrelation 128174 // ProgramMemory (<composition>)
+	relation 128174 *---
 	  a role_name "ProgramMemory" multiplicity "1" private
 	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
 "
-	    classrelation_ref 128174 // ProgramMemory (<unidirectional association>)
-	  b multiplicity "1" parent class_ref 129454 // Memory
+	    classrelation_ref 128174 // ProgramMemory (<composition>)
+	  b role_name "" multiplicity "1" private
+	    classrelation_ref 135982 // <composition>
       end
 
       classrelation 129070 // <dependency>
@@ -537,6 +576,30 @@ ${members}}
 	  a default
 	    classrelation_ref 129070 // <dependency>
 	  b parent class_ref 129582 // Program
+      end
+
+      classrelation 136494 // <composition>
+	relation 136110 *---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136494 // <composition>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136622 // <composition>
+      end
+
+      classrelation 136750 // <composition>
+	relation 136238 *---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136750 // <composition>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136878 // <composition>
       end
     end
 
@@ -582,11 +645,6 @@ ${members}}
       end
     end
 
-    classdiagram 128174 "diagramm"
-      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-      size A4
-    end
-
     class 129454 "Memory"
       visibility package 
       cpp_decl ""
@@ -598,6 +656,9 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 135982 // <composition>
+	relation_ref 128174 // <composition>
+      end
     end
 
     class 129582 "Program"
@@ -624,6 +685,9 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 136878 // <composition>
+	relation_ref 136238 // <composition>
+      end
     end
 
     class 129838 "Instructions"
