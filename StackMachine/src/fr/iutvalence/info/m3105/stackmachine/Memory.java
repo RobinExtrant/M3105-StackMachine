@@ -5,7 +5,7 @@ public class Memory {
 	public int adresse1;
 	public int adresse2;
 	
-	public Memory(int i, int j) {
+	public Memory(int i, int j) throws InvalidParametersException {
 		// TODO Auto-generated constructor stub
 		this.adresse1=i;
 		this.adresse2=j;

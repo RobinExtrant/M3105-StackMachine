@@ -3,7 +3,7 @@ package fr.iutvalence.info.m3105.stackmachine;
 public class MachineLauncher
 {
 
-	public static void main(String[] args) throws InvalidParametersException
+	public static void main(String[] args)
 	{
 		/*
 		0x0: 		in	  		// read a value value from IO and push it to exp-stack
@@ -53,9 +53,16 @@ public class MachineLauncher
 		Stack expStack = null;
 		Stack callStack = null;
 
-		programMemory = new Memory(0x00000000, 0x00000020);
-		expStack = new Stack(16);
-		callStack = new Stack(16);
+		try
+		{
+			programMemory = new Memory(0x00000000, 0x00000020);
+			expStack = new Stack(16);
+			callStack = new Stack(16);
+		}
+		catch (InvalidParametersException e)
+		{
+			// Safely ignore this error, which is not one
+		}
 		
 		IO ioSystem = new IO(System.in, System.out, System.err);
 		CPU cpu = new CPU(programMemory, ioSystem, expStack, callStack);		
