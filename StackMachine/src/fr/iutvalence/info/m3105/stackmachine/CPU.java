@@ -30,10 +30,12 @@ public class CPU
 	
 	// TODO something is missing here...
 	private Memory programMemory;
+	private IO ioSystem;
 	
-	public CPU (Memory memory)
+	public CPU (Memory memory, IO ioSystem)
 	{
 		this.programMemory=memory;
+		this.ioSystem=ioSystem;
 	}
 	
 	public void run()
