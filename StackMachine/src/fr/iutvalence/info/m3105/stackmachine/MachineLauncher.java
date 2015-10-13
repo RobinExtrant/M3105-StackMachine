@@ -65,7 +65,7 @@ public class MachineLauncher
 		}
 		
 		IO ioSystem = new IO(System.in, System.out, System.err);
-		CPU cpu = new CPU();		
+		CPU cpu = new CPU(programMemory);		
 		Machine machine = new Machine(cpu, programMemory, expStack, callStack, ioSystem );
 		try
 		{

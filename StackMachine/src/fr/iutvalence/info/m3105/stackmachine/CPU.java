@@ -31,6 +31,11 @@ public class CPU
 	// TODO something is missing here...
 	private Memory programMemory;
 	
+	public CPU (Memory memory)
+	{
+		this.programMemory=memory;
+	}
+	
 	public void run()
 	{
 		try
