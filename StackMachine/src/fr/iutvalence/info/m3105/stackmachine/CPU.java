@@ -45,6 +45,9 @@ public class CPU
 	
 	public void run()
 	{
+		int opCode=callStack.getAdressToExecute();//TODO call to recup opCode
+	
+		
 		try
 		{
 			while (true)

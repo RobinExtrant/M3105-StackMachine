@@ -9,5 +9,10 @@ public class Stack {
 		// TODO Auto-generated constructor stub
 		this.entier=i;
 	}
+	
+	public int getAdressToExecute()
+	{
+		return null;//TODO method to return adress
+	}
 
 }

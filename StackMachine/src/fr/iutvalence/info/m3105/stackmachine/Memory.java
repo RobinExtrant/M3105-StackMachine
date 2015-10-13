@@ -21,4 +21,9 @@ public class Memory {
 		
 	}
 
+	public int getOpCode (int adressInstruction)
+	{
+		return null; //TODO method to return opCode
+	}
+	
 }
