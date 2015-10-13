@@ -204,5 +204,15 @@ public class CPU
 		
 	}
 
+	public void clearStacks() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPC(int address) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	// TODO something is missing here...
 }
